@@ -39,6 +39,32 @@ function App() {
       console.log("error: ", error);
     }
   };
+
+  const deleteTask = async (id) => {
+    try {
+      const response = await api.delete(`/tasks/${id}`);
+      if (response.status === 200) {
+        getTasks();
+      } else {
+        throw new Error("Task cannot be deleted");
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
+  const completeTask = async (id, isComplete) => {
+    try {
+      const response = await api.put(`/tasks/${id}`, { isComplete });
+      if (response.status === 200) {
+        getTasks()
+      } else {
+        throw new Error("Task cannot be updated")
+      }
+    } catch (error) {
+      
+    }
+  }
   return (
     <Container>
       <Row className="add-item-row">
@@ -58,7 +84,7 @@ function App() {
         </Col>
       </Row>
 
-      <TodoBoard todoList={todoList} />
+      <TodoBoard todoList={todoList} deleteTask={deleteTask} completeTask={completeTask} />
     </Container>
   );
 }
