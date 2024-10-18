@@ -52,10 +52,15 @@ function App() {
 
   const search = async () => {
     try {
-      const response = await api.get(`/search?term=${term}`);
+      const response = await api.get("/tasks/search", {
+        params: {
+          term,
+        },
+      });
       if (response.status === 200) {
         console.log("Success");
         setTerm("");
+        console.log("search", response);
         setTodoList(response.data.data);
       } else {
         throw new Error("Task cannot be added");
@@ -63,7 +68,7 @@ function App() {
     } catch (error) {
       console.log("error: ", error);
     }
-  }
+  };
 
   const deleteTask = async (id) => {
     try {
@@ -76,24 +81,26 @@ function App() {
     } catch (error) {
       console.log("Error: ", error);
     }
-  }
+  };
 
   const completeTask = async (id, isComplete) => {
     try {
       const response = await api.put(`/tasks/${id}`, { isComplete });
       if (response.status === 200) {
-        getTasks()
+        getTasks();
       } else {
-        throw new Error("Task cannot be updated")
+        throw new Error("Task cannot be updated");
       }
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
   return (
     <Container>
       <h2 className="todo-title">🎃 Spooky Ghost List 🎃</h2>
-      <GhostPopup isVisible={isPopupVisible} onClose={showDetail} detail={detail}/>
+      <GhostPopup
+        isVisible={isPopupVisible}
+        onClose={showDetail}
+        detail={detail}
+      />
       <Row className="add-item-row">
         <Col xs={12} sm={10}>
           <input
@@ -105,8 +112,8 @@ function App() {
           />
         </Col>
         <Col xs={12} sm={2}>
-          <button className="button-add" onClick={search}>
-            Add 👻 
+          <button className="button-add" onClick={addTask}>
+            Add 👻
           </button>
         </Col>
       </Row>
@@ -121,13 +128,18 @@ function App() {
           />
         </Col>
         <Col xs={12} sm={2}>
-          <button className="button-add" onClick={addTask}>
-            Find 👻 
+          <button className="button-add" onClick={search}>
+            Find 👻
           </button>
         </Col>
       </Row>
 
-      <TodoBoard todoList={todoList} deleteTask={deleteTask} completeTask={completeTask} showDetail={showDetail} />
+      <TodoBoard
+        todoList={todoList}
+        deleteTask={deleteTask}
+        completeTask={completeTask}
+        showDetail={showDetail}
+      />
     </Container>
   );
 }
