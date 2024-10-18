@@ -1,10 +1,9 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoBoard = ({ todoList, deleteTask, completeTask }) => {
+const TodoBoard = ({ todoList, deleteTask, completeTask, showDetail }) => {
   return (
     <div>
-      <h2>Todo List</h2>
       {todoList?.length > 0 ? (
         todoList.map((todo) => (
           <TodoItem
@@ -12,10 +11,11 @@ const TodoBoard = ({ todoList, deleteTask, completeTask }) => {
             todo={todo}
             deleteTask={deleteTask}
             completeTask={completeTask}
+            showDetail={showDetail}
           />
         ))
       ) : (
-        <h2>There is no Item to show</h2>
+        <h2>There is no task to show</h2>
       )}
     </div>
   );

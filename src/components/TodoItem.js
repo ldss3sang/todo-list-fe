@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-const TodoItem = ({ todo, deleteTask, completeTask }) => {
+const TodoItem = ({ todo, deleteTask, completeTask, showDetail }) => {
+  console.log(todo);
   return (
     <Row>
       <Col xs={12}>
@@ -13,13 +14,19 @@ const TodoItem = ({ todo, deleteTask, completeTask }) => {
               className="button-delete"
               onClick={() => deleteTask(todo._id)}
             >
-              삭제
+              DEAD
             </button>
             <button
               className="button-delete"
               onClick={() => completeTask(todo._id, !todo.isComplete)}
             >
-              {todo.isComplete ? "안끝남": "끝남" }
+              {todo.isComplete ? "UNKILL": "KILL" }
+            </button>
+            <button
+              className="button-delete"
+              onClick={() => showDetail(todo._id)}
+            >
+              BOO!!
             </button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-body{
+/* body{
   color: lightblue !important ;
   background-color: aliceblue !important; 
 }
@@ -55,4 +55,160 @@ body{
 .item-complete{
   background-color: gainsboro;
   color:white;
+} */
+
+/* General Styles */
+/* Container */
+.container {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Input Box */
+.input-box {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ff7518; /* Pumpkin orange */
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #333; /* Dark input background */
+  color: #fff; /* White text */
+  transition: border-color 0.3s;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #ff5e00; /* Lighter orange on focus */
+}
+
+/* Add Button */
+.button-add {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff7518; /* Pumpkin orange */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-add:hover {
+  background-color: #ff5e00; /* Lighter orange on hover */
+}
+
+/* Todo Board */
+.todo-board {
+  background-color: #222; /* Dark background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Title Styles */
+.todo-title {
+  color: #ff7518; /* Pumpkin orange */
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Task Item */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #ff7518; /* Pumpkin orange border */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #333; /* Dark background */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+}
+
+.todo-item:hover {
+  background-color: #444; /* Lighter on hover */
+}
+
+/* Completed Task Styles */
+.item-complete {
+  text-decoration: line-through;
+  color: #aaa; /* Gray for completed tasks */
+  background-color: #444; /* Darker background for completed */
+}
+
+/* Todo Content */
+.todo-content {
+  flex-grow: 1;
+  font-size: 18px;
+  color: #ff7518; /* White text */
+}
+
+/* Button Styles */
+.button-delete, .button-complete {
+  background-color: #ff7518; /* Pumpkin orange */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px; /* Space between buttons */
+}
+
+.button-delete:hover, .button-complete:hover {
+  background-color: #ff5e00; /* Lighter orange on hover */
+}
+
+/* Complete Button */
+.button-complete {
+  background-color: #28a745; /* Green for complete */
+}
+
+.button-complete:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Empty Message Styles */
+.empty-message {
+  color: #ff3333; /* Bright red for emphasis */
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.add-item-row {
+  margin-bottom: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+  .add-item-row {
+    flex-direction: column;
+  }
+
+  .button-add {
+    margin-top: 10px;
+  }
+}
+
+/* Title Styles */
+.todo-title {
+  font-family: 'Creepster', cursive; /* Spooky font */
+  color: #ff7518; /* Pumpkin orange */
+  text-align: center;
+  font-size: 48px; /* Larger font size for emphasis */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Dark shadow for depth */
+  animation: flicker 1.5s infinite alternate; /* Flicker effect */
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
